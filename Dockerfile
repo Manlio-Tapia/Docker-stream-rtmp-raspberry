@@ -1,6 +1,5 @@
-#FROM alpine:latest as builder
 FROM alpine:3.10
-MAINTAINER Manlio Tapia <manlio@integralteleco.com.mx>
+MAINTAINER Manlio Tapia <manlio@integraltelecom.com.mx>
 
 ARG NGINX_VERSION=1.15.3
 ARG NGINX_RTMP_VERSION=1.2.1
@@ -50,7 +49,7 @@ RUN	cd /tmp										&&	\
 	make										&&	\
 	make install
 
-#FROM alpine:3.10
+FROM alpine:3.10
 RUN apk update		&& \
 	apk add			   \
 		openssl		   \

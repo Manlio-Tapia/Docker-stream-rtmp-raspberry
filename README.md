@@ -17,7 +17,7 @@ The configuration file is in /opt/nginx/conf/
 
 To run the container and bind the port 1935 to the host machine; run the following:
 ```
-docker run -p 1935:1935 -p 8080:8080 jasonrivers/nginx-rtmp
+docker run -p 1935:1935 -p 8080:8080 manliod/stream-rtmp
 ```
 
 ### Multiple Streams:
@@ -27,7 +27,7 @@ docker run      \
     -p 1935:1935        \
     -p 8080:8080        \
     -e RTMP_STREAM_NAMES=live,teststream1,teststream2   \
-    jasonrivers/nginx-rtmp
+    manliod/stream-rtmp
 ```
 
 ### Pushing streams
@@ -37,7 +37,7 @@ docker run      \
     -p 1935:1935        \
     -p 8080:8080        \
     -e RTMP_PUSH_URLS=rtmp://live.youtube.com/myname/streamkey,rtmp://live.twitch.tv/app/streamkey
-    jasonrivers/nginx-rtmp
+    manliod/stream-rtmp
 ```
 
 ## OBS Configuration
