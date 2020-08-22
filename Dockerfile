@@ -1,5 +1,5 @@
 #FROM alpine:3.1
-FROM arm32v6/alpine
+FROM arm32v6/alpine:3.10
 MAINTAINER Manlio Tapia <manlio@integraltelecom.com.mx>
 
 ARG NGINX_VERSION=1.15.3
