@@ -45,7 +45,7 @@ Under broadcast settigns, set the follwing parameters:
 ```
 Streaming Service: Custom
 Server: rtmp://<your server ip>/live
-Play Path/Stream Key: mystream
+Play Path/Stream Key: mystream #This can be any string
 ```
 
 ## Watching the steam
