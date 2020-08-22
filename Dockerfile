@@ -1,10 +1,15 @@
-FROM alpine:edge
+#FROM alpine:3.1
+FROM arm32v6/alpine
+MAINTAINER Manlio Tapia <manlio@integraltelecom.com.mx>
 
-RUN set -x \
- && addgroup -S stunnel \
- && adduser -S -G stunnel stunnel \
- && apk add --update --no-cache \
-        git			\
+ARG NGINX_VERSION=1.15.3
+ARG NGINX_RTMP_VERSION=1.2.1
+
+
+
+RUN	apk update		&&	\
+	apk add				\
+		git			\
 		gcc			\
 		binutils		\
 		gmp			\
@@ -62,4 +67,4 @@ ADD run.sh /
 EXPOSE 1935
 EXPOSE 8080
 
-CMD /run.sh        
+CMD /run.shs
