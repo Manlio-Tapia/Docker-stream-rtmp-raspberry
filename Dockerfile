@@ -34,7 +34,7 @@ RUN	apk update		&&	\
 		zlib-dev		\
 		openssl-dev		\
 		curl			\
-		stunel   		\
+		stunnel   		\
 		make
 
 RUN	cd /tmp/									&&	\
