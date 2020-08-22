@@ -5,8 +5,9 @@ ARG NGINX_VERSION=1.15.3
 ARG NGINX_RTMP_VERSION=1.2.1
 
 
-RUN	apk update		&&	\
-	apk add				\
+RUN	apk update	
+
+RUN	apk add				\
 		git			\
 		gcc			\
 		binutils		\
