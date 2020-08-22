@@ -1,4 +1,4 @@
-FROM alpine:3.10
+FROM alpine:3.11
 MAINTAINER Manlio Tapia <manlio@integraltelecom.com.mx>
 
 ARG NGINX_VERSION=1.15.3
