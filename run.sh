@@ -1,16 +1,42 @@
 #!/bin/sh
 
 NGINX_CONFIG_FILE=/opt/nginx/conf/nginx.conf
-
+STUNNEL_CONFIG=/etc/stunnel/stunnel.conf
+STUNNEL_FB_1=/etc/stunnel/conf.d/fb.conf
 
 RTMP_CONNECTIONS=${RTMP_CONNECTIONS-1024}
 RTMP_STREAM_NAMES=${RTMP_STREAM_NAMES-live,testing}
 RTMP_STREAMS=$(echo ${RTMP_STREAM_NAMES} | sed "s/,/\n/g")
 RTMP_PUSH_URLS=$(echo ${RTMP_PUSH_URLS} | sed "s/,/\n/g")
 
+
 apply_config() {
 
     echo "Creating config"
+##STUNNEL CONFIG
+RUN echo "setuid = stunnel4" >>  ${STUNNEL_CONFIG} 
+RUN echo "setgid = stunnel4" >>  ${STUNNEL_CONFIG} 
+RUN echo "pid=/tmp/stunnel.pid" >>  ${STUNNEL_CONFIG} 
+RUN echo "output = /var/log/stunnel4/stunnel.log" >>  ${STUNNEL_CONFIG} 
+RUN echo "include = /etc/stunnel/conf.d" >>  ${STUNNEL_CONFIG} 
+
+#Aqui va la modificacion de /etc/default/stunnel4
+
+RUN mkdir conf.d
+RUN echo "[fb-live-1]" >> ${STUNNEL_FB_1}
+RUN echo "client = yes" >> ${STUNNEL_FB_1}
+RUN echo "accept = 127.0.0.1:19351" >> ${STUNNEL_FB_1}
+RUN echo "connect = live-api-s.facebook.com:443" >> ${STUNNEL_FB_1}
+RUN echo "verifyChain = no" >> ${STUNNEL_FB_1}
+
+RUN echo "[fb-live-2]" >> ${STUNNEL_FB_1}
+RUN echo "client = yes" >> ${STUNNEL_FB_1}
+RUN echo "accept = 127.0.0.1:19352" >> ${STUNNEL_FB_1}
+RUN echo "connect = live-api-s.facebook.com:443" >> ${STUNNEL_FB_1}
+RUN echo "verifyChain = no" >> ${STUNNEL_FB_1}
+
+
+RUN /etc/init.d/stunnel4 restart
 ## Standard config:
 
 cat >${NGINX_CONFIG_FILE} <<!EOF

@@ -32,7 +32,8 @@ RUN	apk update		&&	\
 		zlib-dev		\
 		openssl-dev		\
 		curl			\
-		make
+		make			\
+		stunnel4
 
 RUN	cd /tmp/									&&	\
 	curl --remote-name http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz			&&	\
