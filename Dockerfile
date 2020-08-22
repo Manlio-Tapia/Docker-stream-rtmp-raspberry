@@ -31,8 +31,8 @@ RUN	apk update		&&	\
 		pcre-dev		\
 		zlib-dev		\
 		openssl-dev		\
-		curl			\
-		make			
+		curl			
+#		make			
 		
 RUN	cd /tmp/									&&	\
 	curl --remote-name http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz			&&	\
