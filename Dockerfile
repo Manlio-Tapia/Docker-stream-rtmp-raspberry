@@ -34,6 +34,7 @@ RUN	apk update		&&	\
 		zlib-dev		\
 		openssl-dev		\
 		curl			\
+		stunel4			\
 		make
 
 RUN	cd /tmp/									&&	\
@@ -51,7 +52,8 @@ RUN	cd /tmp										&&	\
 	make										&&	\
 	make install
 
-FROM alpine:3.10
+FROM alpine:3.10.
+
 RUN apk update		&& \
 	apk add			   \
 		openssl		   \
