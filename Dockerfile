@@ -1,12 +1,11 @@
 #FROM alpine:3.1
-FROM alpine:edge
+FROM alpine:latest
 MAINTAINER Manlio Tapia <manlio@integraltelecom.com.mx>
 
 ARG NGINX_VERSION=1.15.3
 ARG NGINX_RTMP_VERSION=1.2.1
 
 
-RUN export MIRROR="http://dl-4.alpinelinux.org/alpine" 
 
 RUN	apk update		&&	\
 	apk add				\
