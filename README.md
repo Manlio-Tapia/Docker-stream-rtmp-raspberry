@@ -40,6 +40,12 @@ docker run      \
     manliod/stream-rtmp
 ```
 
+For Facebook (RTMPS)
+#Change this
+push rtmps://live-api-s.facebook.com:443/rtmp/<facebook-live-stream-key>;
+#For This
+push rtmp://127.0.0.1:19351/rtmp/<facebook-live-stream-key>;
+push rtmp://127.0.0.1:19352/rtmp/<facebook-live-stream-key>;
 ## OBS Configuration
 Under broadcast settigns, set the follwing parameters:
 ```
