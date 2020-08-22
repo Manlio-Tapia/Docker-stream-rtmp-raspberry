@@ -6,7 +6,7 @@ ARG NGINX_VERSION=1.15.3
 ARG NGINX_RTMP_VERSION=1.2.1
 
 
- export MIRROR="http://dl-4.alpinelinux.org/alpine" 
+RUN export MIRROR="http://dl-4.alpinelinux.org/alpine" 
 
 RUN	apk update		&&	\
 	apk add				\
